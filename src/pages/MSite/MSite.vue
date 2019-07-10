@@ -6,7 +6,7 @@
         <i class="iconfont icon-sousuo"></i>
       </span>
       <span class="header_login" slot="right">
-        <span class="header_login_text">登录|注册</span>
+        <span class="header_login_text"@click="$router.push('/login')">登录|注册</span>
       </span>
     </Header>
     <!--首页导航-->

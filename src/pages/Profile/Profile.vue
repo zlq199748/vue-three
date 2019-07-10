@@ -1,18 +1,20 @@
 <template>
 <section class="profile">
   <Header title="我的"/>
-  <section class="profile-number" @click="$router.push('/login')">
+  <section class="profile-number" @click="$router.push(user._id?'/userinfo':'/login')">
     <a href="javascript:" class="profile-link">
       <div class="profile_image">
         <i class="iconfont icon-person"></i>
       </div>
       <div class="user-info">
-        <p class="user-info-top">登录/注册</p>
-        <p>
+        <p class="user-info-top" v-show="!user.phone">
+          {{user.name ?user.name:'登录/注册'}}
+        </p>
+        <p v-show="!user.name">
           <span class="user-icon">
             <i class="iconfont icon-shouji icon-mobile"></i>
           </span>
-          <span class="icon-mobile-number">暂无绑定手机号</span>
+          <span class="icon-mobile-number">{{user.phone?user.phone:'暂无绑定手机号'}}</span>
         </p>
       </div>
       <span class="arrow">
@@ -88,11 +90,25 @@
       </div>
     </a>
   </section>
+
+  <section class="profile_my_order border-1px" v-if="user._id">
+   <!--退出登录-->
+    <mt-button type="danger" style="width: 100%" @click="tuichu">退出登录</mt-button>
+  </section>
 </section>
 </template>
 <script>
+  import {mapState} from "vuex"
 export default{
-
+    computed:{
+      ...mapState(['user'])
+    },
+    methods:{
+      tuichu(){
+        this.$store.dispatch('logout')
+        this.$router.replace('/login')
+      }
+   }
 }
 </script>
 <style lang="stylus" rel="stylesheet/stylus" scoped>

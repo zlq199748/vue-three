@@ -1,6 +1,6 @@
 <template>
 <div>
- ShopInfo
+  ShopHeader
 </div>
 </template>
 <script>
