@@ -93,7 +93,7 @@
 
   <section class="profile_my_order border-1px" v-if="user._id">
    <!--退出登录-->
-    <mt-button type="danger" style="width: 100%" @click="tuichu">退出登录</mt-button>
+    <mt-button type="danger" style="width: 100%" @click="goBack">退出登录</mt-button>
   </section>
 </section>
 </template>
@@ -101,10 +101,13 @@
   import {mapState} from "vuex"
 export default{
     computed:{
-      ...mapState(['user'])
+      ...mapState({
+        user:state=>state.user.user
+         //第一个user是读的总状态user 第二个是值
+      })
     },
     methods:{
-      tuichu(){
+      goBack(){
         this.$store.dispatch('logout')
         this.$router.replace('/login')
       }

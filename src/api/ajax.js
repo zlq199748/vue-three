@@ -1,7 +1,6 @@
 import axios from 'axios'
 import store from '../vuex/store'
 import  router from '../router'
-
 import qs  from 'qs'
 //请求超时 全局配置
 axios.defaults.timeout =20000
@@ -16,7 +15,7 @@ axios.interceptors.request.use((config) => {
   const {needToken}=config.headers//让拦截器可以看到
   //如果浏览器端有token就自动携带上
    if (needToken){
-      const token =store.state.token
+      const token =store.state.user.token
       if (token){
         config.headers.Authorization=token
       }else {
