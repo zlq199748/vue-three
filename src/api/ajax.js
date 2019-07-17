@@ -8,7 +8,7 @@ axios.defaults.timeout =20000
 axios.interceptors.request.use((config) => {
 
   const {method, data} = config
-  // 如果是携带数据的post请求, 进行处理
+  // 如果是携带数据（data）的post请求, 并且data有值
   if (method.toLowerCase()==='post' && data && typeof data==='object') {
     config.data = qs.stringify(data) // {name: 'tom', pwd: '123'} ==> name=tom&pwd=123
   }

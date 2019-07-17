@@ -101,6 +101,14 @@ const actions={
     //总价格
     totalPrice(state){
       return state.cartFoods.reduce((pre,food)=>pre+food.count*food.price,0)
+    },
+    //评级的数组的长度
+    totalRatingCount(state){
+      return state.ratings.length
+    },
+    //推荐评价的数量
+    totalPositiveRatingCount(state){
+      return state.ratings.reduce((pre,rating) => pre + (rating.rateType===0?1:0),0)
     }
   }
 

@@ -42,6 +42,7 @@
       </div>
     </div>
 
+    <!---->
     <transition name="fade">
     <div class="shop-brief-modal" v-show="isShowBulletin">
       <div class="brief-modal-content">
@@ -85,8 +86,6 @@
       <div class="brief-modal-cover"  @click="isShowBulletin = false"></div>
     </div>
     </transition>
-
-
 
     <div class="activity-sheet" v-show="isShowSupports">
       <div class="activity-sheet-content">

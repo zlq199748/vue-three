@@ -14,7 +14,7 @@
       </div>
       <div class="foods-wrapper" ref="rightWrapper">
         <ul ref="rightUl">
-          <li class="food-list-hook" v-for="good in goods":key="good.name">
+          <li class="food-list-hook" v-for="good in goods" :key="good.name">
             <h1 class="title">{{good.name}}</h1>
             <ul>
               <li class="food-item bottom-border-1px" v-for=" food in good.foods":key="food.name"
@@ -62,7 +62,7 @@
          return{
           scrollY:0,//右侧列表的滑动坐标 开始不用滑
           tops:[],  //右侧所有分类li的top组成的数组（临建值）
-          food:{},
+          food:{},//食物列表
           }
        },
     computed: {

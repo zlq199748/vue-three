@@ -1,6 +1,8 @@
 <template>
   <div>
+    <keep-alive>
     <router-view/>
+    </keep-alive>
     <FooterGuide v-show="$route.meta.isShow"/>
   </div>
 
@@ -12,6 +14,7 @@ export default{
      //分发action，从后台获取数据到state
      this.$store.dispatch('getAddress')
      this.$store.dispatch('autoLigon')
+
    },
   components:{
     FooterGuide
