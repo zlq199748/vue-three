@@ -1,6 +1,8 @@
 /*
 接口请求函数
-* */
+*/
+
+
 
 import  ajax from './ajax'
 import  store from '../vuex/store'
